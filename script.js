@@ -22,4 +22,17 @@ function getComputerChoice() {
     }
 }
 
-getComputerChoice();
+//function that gets the player's choice and returns it
+function getPlayerChoice() {
+    //promt the user to pick out of three options: rock, paper, or scissors
+    let playerChoice = ' ';
+    playerChoice = prompt("Your turn: Rock, paper, or scissors?");
+    //take user input and store it inside a variable. Make the variable lower case
+    playerChoice.toLowerCase();
+
+    if (playerChoice == 'rock' || playerChoice == 'paper' || playerChoice == 'scissors') {
+            return `you chose ${playerChoice}!`;
+        } else {
+            return 'Please pick one!';
+        }
+};
