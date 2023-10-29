@@ -29,17 +29,18 @@ let computerSelection = getComputerChoice();
 //function that gets the player's choice and returns it
 function getPlayerChoice() {
     //promt the user to pick out of three options: rock, paper, or scissors
-    let playerChoice = ' ';
-    playerChoice = prompt("Your turn: Rock, paper, or scissors?");
-    //take user input and store it inside a variable. Make the variable lower case
-    playerChoice.toLowerCase();
+    let playerChoice = prompt('Your turn: Rock, paper, or scissors?');
 
-    if (playerChoice == 'rock' || playerChoice == 'paper' || playerChoice == 'scissors') {
-            return playerChoice;
-        } else {
-            return 'Please pick one!';
-        }
-};
+    //convert to lower case and store in variable
+    playerChoice = playerChoice.toLowerCase();
+
+    while (playerChoice !== 'rock' && playerChoice !== 'paper' && playerChoice !== 'scissors') {
+        alert('please pick one!');
+        playerChoice = prompt('Your turn: Rock, paper, or scissors?');
+    }
+
+return playerChoice
+}
 
 //store it in variable
 let playerSelection = getPlayerChoice();
@@ -63,3 +64,12 @@ function playRound(playerSelection, computerSelection) {
         return 'You lose scissors beats paper!';
     };
 }
+
+console.log(playerSelection);
+console.log(computerSelection);
+console.log(playRound(playerSelection, computerSelection));
+
+
+//create a looping algorithm which loops over the player prompt until the player choose an option. 
+//if the player does not choose, ask them to pick. 
+//while there isnt a player choice selected
