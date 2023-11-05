@@ -3,7 +3,6 @@ function getRandomNum() {
     return Math.floor(Math.random() * 3) + 1;
 }
 
-
 //create a function that randomly returns 'rock', 'paper', or 'scissors'
 function getComputerChoice() {
 
@@ -24,7 +23,7 @@ function getComputerChoice() {
 }
 
 //variable will store computer choice
-let computerSelection = getComputerChoice();
+let computerSelection = getComputerChoice;
 
 //function that gets the player's choice and returns it
 function getPlayerChoice() {
@@ -38,18 +37,17 @@ function getPlayerChoice() {
         alert('please pick one!');
         playerChoice = prompt('Your turn: Rock, paper, or scissors?');
     }
-
-return playerChoice
+    return playerChoice;
 }
 
 //store it in variable
-let playerSelection = getPlayerChoice();
+let playerSelection = getPlayerChoice;
 
 //Create function which plays a round of the game
 function playRound(playerSelection, computerSelection) {
 
     if (playerSelection == computerSelection) {
-        return "It's a tie!"
+        return "It's a tie!";
     } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
         return 'you win! rock beats scissors!';
     } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
@@ -65,11 +63,12 @@ function playRound(playerSelection, computerSelection) {
     };
 }
 
-console.log(playerSelection);
-console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+//create a function which calls play round 5 times
+function game() {
 
+    for (i = 0; i < 5; i++) {
+        console.log(playRound(getComputerChoice(), getPlayerChoice()));
+    }
+};
 
-//create a looping algorithm which loops over the player prompt until the player choose an option. 
-//if the player does not choose, ask them to pick. 
-//while there isnt a player choice selected
+game();
