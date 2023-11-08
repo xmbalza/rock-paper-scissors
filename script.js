@@ -43,32 +43,57 @@ function getPlayerChoice() {
 //store it in variable
 let playerSelection = getPlayerChoice;
 
+//initialize two empty variables to track score
+let playerScore = 0;
+let computerScore = 0;
+
 //Create function which plays a round of the game
 function playRound(playerSelection, computerSelection) {
 
-    if (playerSelection == computerSelection) {
+    if (playerSelection === computerSelection) {
         return "It's a tie!";
     } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
+        playerScore++;
         return 'you win! rock beats scissors!';
     } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+        computerScore++;
         return 'you lose! rock beats scissors!'
     } else if (playerSelection == 'rock' && computerSelection == 'paper'){
+        computerScore++;
         return 'you lose paper beats rock!';
     } else if (playerSelection == 'paper' && computerSelection == 'rock') {
+        playerScore++;
         return 'you win! paper beats rock!';
     } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+        playerScore++;
         return 'you win scissors beats paper!';
     } else if (playerSelection == 'paper' && computerSelection == 'scissors'){
+        computerScore++;
         return 'You lose scissors beats paper!';
     };
 }
 
-//create a function which calls play round 5 times
+//play round 5 times and announce the winner at the end
 function game() {
+
+    let announceWinner = '';
 
     for (i = 0; i < 5; i++) {
         console.log(playRound(getComputerChoice(), getPlayerChoice()));
-    }
+    };
+
+    console.log(`Player: ${playerScore} - Computer: ${computerScore}`);
+
+    if (playerScore === computerScore) {
+        announceWinner = "It's a tied game!";
+    } else if (playerScore > computerScore) {
+        announceWinner = 'You win the game!';
+    } else {
+        announceWinner = 'You lost :(';
+    };
+
+    console.log(announceWinner);
+
 };
 
 game();
